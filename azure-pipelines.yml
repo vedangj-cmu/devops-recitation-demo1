@@ -18,8 +18,8 @@ stages:
     - script: python3 -m pip install poetry
       displayName: 'Install Poetry'
     
-    - script: poetry install
+    - script: python3 -m poetry install
       displayName: 'Install Dependencies'
     
-    - script: poetry run pytest -v
+    - script: python3 -m poetry run pytest -v
       displayName: 'Run Tests'
