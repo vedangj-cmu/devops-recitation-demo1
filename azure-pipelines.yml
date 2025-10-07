@@ -1,13 +1,12 @@
 trigger:
 - main
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 stages:
 - stage: Test
   jobs:
-  - job: RunTests
+  - job: Linux
+    pool:
+      vmImage: 'ubuntu-latest'    
     steps:
     - script: python3 --version
       displayName: 'Check Python Version'
