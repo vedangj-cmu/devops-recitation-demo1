@@ -11,6 +11,9 @@ stages:
     steps:
     - script: python3 --version
       displayName: 'Check Python Version'
+
+    - script: python3 -m ensurepip --upgrade
+      displayName: 'Ensure pip is installed'
     
     - script: python3 -m pip install poetry
       displayName: 'Install Poetry'
