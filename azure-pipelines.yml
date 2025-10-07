@@ -9,10 +9,8 @@ stages:
   jobs:
   - job: RunTests
     steps:
-    - task: UsePythonVersion@0
-      inputs:
-        versionSpec: '3.13'
-      displayName: 'Use Python 3.13'
+    - script: python --version
+      displayName: 'Check Python Version'
     
     - script: pip install poetry
       displayName: 'Install Poetry'
