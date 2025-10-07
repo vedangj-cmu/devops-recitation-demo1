@@ -1,19 +1,24 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
 pool:
   name: custompool1
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+- stage: Test
+  jobs:
+  - job: RunTests
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.13'
+      displayName: 'Use Python 3.13'
+    
+    - script: pip install poetry
+      displayName: 'Install Poetry'
+    
+    - script: poetry install
+      displayName: 'Install Dependencies'
+    
+    - script: poetry run pytest -v
+      displayName: 'Run Tests'
