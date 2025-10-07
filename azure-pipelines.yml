@@ -9,10 +9,10 @@ stages:
   jobs:
   - job: RunTests
     steps:
-    - script: python --version
+    - script: python3 --version
       displayName: 'Check Python Version'
     
-    - script: pip install poetry
+    - script: python3 -m pip install poetry
       displayName: 'Install Poetry'
     
     - script: poetry install
