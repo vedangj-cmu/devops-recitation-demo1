@@ -1,12 +1,13 @@
 trigger:
 - main
 
+pool:
+  name: 'Azure Pipelines'    
+
 stages:
 - stage: Test
   jobs:
-  - job: Linux
-    pool:
-      vmImage: 'ubuntu-latest'    
+  - job: RunTest
     steps:
     - script: python3 --version
       displayName: 'Check Python Version'
