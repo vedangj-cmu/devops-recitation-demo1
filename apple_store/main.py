@@ -55,7 +55,7 @@ def create_restock(request: RestockRequest):
     if not device:
         raise HTTPException(status_code=404, detail="Device type not found")
     
-    device.quantity += request.quantity
+    device.quantity = request.quantity
     
     return RestockResponse(
         device_type=request.device_type,
